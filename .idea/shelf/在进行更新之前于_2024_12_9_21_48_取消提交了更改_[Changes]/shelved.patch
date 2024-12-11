@@ -1,0 +1,1033 @@
+Index: 03day/01.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/03day/01.py b/03day/01.py
+new file mode 100644
+--- /dev/null	(date 1731920020199)
++++ b/03day/01.py	(date 1731920020199)
+@@ -0,0 +1,16 @@
++#else语句
++#if...else...中，条件不满足if执行else
++# while...else... 和 for...else...中，没有遇到break时执行else
++#书三次密码，三次过后 冻结账户
++
++for i in range(3):
++    password = input('输入密码：')
++    if password == '666666':
++        print('密码输入正确！')
++        break
++    else:
++        if i < 2:
++            print(f'密码输入错误，您还有{2-i}次输入机会，请重新输入！')
++
++else:
++    print('密码输入错误3次，该账户已被冻结，请联系管理员！')
+Index: 03day/02.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/03day/02.py b/03day/02.py
+new file mode 100644
+--- /dev/null	(date 1731921946971)
++++ b/03day/02.py	(date 1731921946971)
+@@ -0,0 +1,20 @@
++'''字符串切片
++将原来的字符串进行切割
++语法：[start:stop:step]
++1.start  开始（从头开始，位置为0）
++2.stop   结束（默认到尾）
++3.step   步长（默认为1）
++必须要确定三个数值。区间为[ , )
++字符串下标正向从0开始，逆向从-1开始，index（下标）
++-6 -5 -4 -3 -2 -1 (逆序）
++ a  b  c  d  e  f
++ 0  1  2  3  4  5（正序）
++ 例如：取def
++ str[3] >> d         index=3   （这不是切片，是字符索引）
++ str[3;5]   这是切片
++ start=6  stop=6  step默认为1
++ 截取为  e  d  f
++'''
++str = 'abcdef'
++print(str[3])
++print(str[3:6])
+Index: .idea/project.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/project.iml b/.idea/project.iml
+new file mode 100644
+--- /dev/null	(date 1731677009502)
++++ b/.idea/project.iml	(date 1731677009502)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="jdk" jdkName="Python 3.13" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: 1/learn.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import math\r\n# print('1024 * 768 =',1024*768)\r\n# print('''line1\r\n# line2\r\n# line3'''')\r\n# a=123\r\n# b='abc'\r\n# print(a,b)\r\n# n = 123\r\n# f = 456.789\r\n# s1 = 'Hello, world'\r\n# s2 = 'Hello, \\'Adam\\''\r\n# s3 = r'Hello, \"Bart\"'\r\n# s4 = r'''Hello,Bob!'''\r\n# print(n,f,'Hello World','Hello World,\\'Adam\\'',r'hello world,\"bart\"',r'''hello,bob!'''')\r\n# x=b'abc'\r\n# print(x)\r\n# r=2.5\r\n# s=3.14*r**2\r\n# print('%s'%s)\r\n# s1=72\r\n# s2=85\r\n# r=(s2-s1)/72\r\n# print('%.1f'%r)\r\n# L = [\r\n#     ['Apple', 'Google', 'Microsoft'],\r\n#     ['Java', 'Python', 'Ruby', 'PHP'],\r\n#     ['Adam', 'Bart', 'Bob']\r\n# ]\r\n# print(L[0][0],L[1][1],L[2][2])\r\n# birth = int(input('birth: '))\r\n# if birth < 2000:\r\n#     print('00前')\r\n# else:\r\n#     print('00后')\r\n# height = 1.75\r\n# weight = 80.5\r\n# bmi =weight/height**2\r\n# if bmi<18.5:\r\n#     print(\"过轻\")\r\n# elif bmi in(18.5,25):\r\n#     print(\"正常\")\r\n# elif bmi in(25,28):\r\n#     print(\"过重\")\r\n# elif bmi in(28,32):\r\n#     print(\"肥胖\")\r\n# else:\r\n#     print(\"严重肥胖\")\r\n\r\n# age = int(input())\r\n# match age:\r\n#     case x if x < 10:\r\n#         print(f'< 10 years old: {x}')\r\n#     case 10:\r\n#         print('10 years old.')\r\n#     case 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18:\r\n#         print('11~18 years old.')\r\n#     case 19:\r\n#         print('19 years old.')\r\n#     case _:\r\n#         print('not sure.')\r\n\r\n# args = ['gcc', 'hello.c', 'world.c']\r\n# # args = ['clean']\r\n# # args = ['gcc']\r\n#\r\n# match args:\r\n#     # 如果仅出现gcc，报错:\r\n#     case ['gcc']:\r\n#         print('gcc: missing source file(s).')\r\n#     # 出现gcc，且至少指定了一个文件:\r\n#     case ['gcc', file1, *files]:\r\n#         print('gcc compile: ' + file1 + ', ' + ', '.join(files))\r\n#     # 仅出现clean:\r\n#     case ['clean']:\r\n#         print('clean')\r\n#     case _:\r\n#         print('invalid command.')\r\n\r\n# L = ['Bart', 'Lisa', 'Adam']\r\n# for L in['Bart', 'Lisa', 'Adam']:\r\n#     print(L)\r\n\r\n# a={'a','b','c'}\r\n# a.remove('a')\r\n# print(a)\r\n\r\n# a=abs(-99)\r\n# print(a)\r\n# b=max(1,2,3,9,8,5,6,4,1)\r\n# print(b)\r\n# c=str(1.23)\r\n# print(c)\r\n# n1 = 255\r\n# n2 = 1000\r\n# s=hex(n1)\r\n# k=hex(n2)\r\n# print(s,k)\r\n\r\n# n=int(input())\r\n# def my_abs(m):\r\n#     if m>0:\r\n#         return 'true'\r\n#     else:\r\n#         return 'false'\r\n# print(my_abs(n))\r\n# import math\r\n# def quadratic(a, b, c):\r\n#     x1=-b+math.sqrt(b**2-a*c*4)\r\n#     x2=-b-math.sqrt(b**2-a*c*4)\r\n#     return x1,x2\r\n# print('quadratic(2,3,1)=',quadratic(2,3,1))\r\n# print('quadratic(1,3,-4)=',quadratic(1,3,-4))\r\n# if quadratic(2, 3, 1) != (-0.5, -1.0):\r\n#     print('测试失败')\r\n# elif quadratic(1, 3, -4) != (1.0, -4.0):\r\n#     print('测试失败')\r\n# else:\r\n#     print('测试成功')\r\n\r\n# x=int(input())\r\n# y=int(input())\r\n# def power(n,m):\r\n#     s=1\r\n#     while m>0:\r\n#         m-=1\r\n#         s*=n\r\n#     return s\r\n# print(power(x,y))\r\n\r\n# name=str(input())\r\n# sex=str(input())\r\n# age=int(input())\r\n# addres=str(input())\r\n# tel=str(input())\r\n# def people_information(name,sex,age,addres,tel):\r\n#     print('name:',name)\r\n#     print('sex:',sex)\r\n#     print('age:',age)\r\n#     print('addres:',addres)\r\n#     print('tel:',tel)\r\n# print(people_information(name, sex, age, addres, tel))\r\n\r\n# def mul(*args):\r\n#     if not args:\r\n#         raise TypeError(\"mul() requires at least one argument\")\r\n#     result=1\r\n#     for num in args:\r\n#         result *= num\r\n#     return result\r\n#\r\n# # 测试\r\n# print('mul(5) =', mul(5))\r\n# print('mul(5, 6) =', mul(5, 6))\r\n# print('mul(5, 6, 7) =', mul(5, 6, 7))\r\n# print('mul(5, 6, 7, 9) =', mul(5, 6, 7, 9))\r\n# if mul(5) != 5:\r\n#     print('mul(5)测试失败!')\r\n# elif mul(5, 6) != 30:\r\n#     print('mul(5, 6)测试失败!')\r\n# elif mul(5, 6, 7) != 210:\r\n#     print('mul(5, 6, 7)测试失败!')\r\n# elif mul(5, 6, 7, 9) != 1890:\r\n#     print('mul(5, 6, 7, 9)测试失败!')\r\n# else:\r\n#     try:\r\n#         mul()\r\n#         print('mul()测试失败!')\r\n#     except TypeError:\r\n#         print('测试成功!')\r\n#\r\n# def mul(*args):\r\n#     if not args:  # 检查是否传入了参数\r\n#         raise TypeError(\"mul() requires at least one argument\")\r\n#     result = 1\r\n#     for num in args:\r\n#         result *= num\r\n#     return result\r\n#\r\n# # 测试\r\n# print('mul(5) =', mul(5))                # 输出: mul(5) = 5\r\n# print('mul(5, 6) =', mul(5, 6))          # 输出: mul(5, 6) = 30\r\n# print('mul(5, 6, 7) =', mul(5, 6, 7))    # 输出: mul(5, 6, 7) = 210\r\n# print('mul(5, 6, 7, 9) =', mul(5, 6, 7, 9))  # 输出: mul(5, 6, 7, 9) = 1890\r\n#\r\n# if mul(5) != 5:\r\n#     print('mul(5)测试失败!')\r\n# elif mul(5, 6) != 30:\r\n#     print('mul(5, 6)测试失败!')\r\n# elif mul(5, 6, 7) != 210:\r\n#     print('mul(5, 6, 7)测试失败!')\r\n# elif mul(5, 6, 7, 9) != 1890:\r\n#     print('mul(5, 6, 7, 9)测试失败!')\r\n# else:\r\n#     try:\r\n#         mul()  # 测试未传参数的情况\r\n#         print('mul()测试失败!')\r\n#     except TypeError:\r\n#         print('测试成功!')\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/1/learn.py b/1/learn.py
+--- a/1/learn.py	(revision 3521cda6ea88cdd4fc18235f98f70eded4972466)
++++ b/1/learn.py	(date 1733745103106)
+@@ -1,4 +1,4 @@
+-import math
++# import math
+ # print('1024 * 768 =',1024*768)
+ # print('''line1
+ # line2
+@@ -12,8 +12,8 @@
+ # s2 = 'Hello, \'Adam\''
+ # s3 = r'Hello, "Bart"'
+ # s4 = r'''Hello,Bob!'''
+-# print(n,f,'Hello World','Hello World,\'Adam\'',r'hello world,"bart"',r'''hello,bob!'''')
+-# x=b'abc'
++# print(n,f,'Hello World','Hello World,\'Adam\'',hello world,"bart"',r'''hello,bob!'''')
++# x=baba
+ # print(x)
+ # r=2.5
+ # s=3.14*r**2
+@@ -46,6 +46,8 @@
+ #     print("肥胖")
+ # else:
+ #     print("严重肥胖")
++from os import remove
++
+ 
+ # age = int(input())
+ # match age:
+@@ -131,15 +133,15 @@
+ # name=str(input())
+ # sex=str(input())
+ # age=int(input())
+-# addres=str(input())
++# address=str(input())
+ # tel=str(input())
+-# def people_information(name,sex,age,addres,tel):
++# def people_information(name,sex,age,address,tel):
+ #     print('name:',name)
+ #     print('sex:',sex)
+ #     print('age:',age)
+-#     print('addres:',addres)
++#     print('address:',address)
+ #     print('tel:',tel)
+-# print(people_information(name, sex, age, addres, tel))
++# print(people_information(name, sex, age, address, tel))
+ 
+ # def mul(*args):
+ #     if not args:
+@@ -197,3 +199,48 @@
+ #         print('mul()测试失败!')
+ #     except TypeError:
+ #         print('测试成功!')
++# def fun(n):
++#     if n==1:
++#         return 1;
++#     else :
++#         return n*fun(n-1)
++# print(fun(9))
++
++#汉诺塔
++# def move(n, a, b, c):
++#     if n == 1:
++#         print(a, '-->', c)
++#     else:
++#         move(n-1,)
++
++# L=[2,3,4,5,6]
++# print(L[-2:-1])
++# L=list(range(100))
++# print(L[:])
++
++# def trim(*str):
++#     if not  str:
++#         print('NO')
++#     for L in str:
++#         remove()
++# def trim(s):
++#     # 从第一个非空格字符开始到最后一个非空格字符结束
++#     start = 0
++#     end = len(s) - 1
++#     # # 找到第一个非空格字符的索引
++#     # while start <= end and s[start] == ' ':
++#     #     start += 1
++#     # # 找到最后一个非空格字符的索引
++#     # while end >= start and s[end] == ' ':
++#     #     end -= 1
++#     for i in range(len(s)):
++#         if s[i]!=' ':
++#             start=i
++#             break
++#     for j in range(len(s)-1,-1,-1):
++#         if s[j]!=' ':
++#             end=j
++#             break
++#     # 返回去除首尾空格后的子字符串
++#     return s[start:end + 1]
++# print(trim('  hello world!  '))
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1731677009524)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1731677009524)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: 01/02.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/01/02.py b/01/02.py
+new file mode 100644
+--- /dev/null	(date 1731684818671)
++++ b/01/02.py	(date 1731684818671)
+@@ -0,0 +1,31 @@
++name=1123  #整型
++print(f'name={name},type={type(name)}')
++a=3.6 #浮点型
++print(f'a={a},type={type(a)}')
++klk_op=True #布尔型
++print(f'klk_op={klk_op},type={type(klk_op)}')
++
++#字符串,三种格式   1.''  2.""   3.''' '''（适用于多行书写）   嵌套使用明显
++
++nam='6'
++print(f'nam={nam},type={type(nam)}')
++cni="6565"
++print(f'cni={cni},type={type("cni")}')
++cnt='''6'''
++print(f'cnt={cnt},type={type('''cnt''')}')
++
++
++#列表，有序、重复、可扩展
++#元组，有序、重复、不可扩展
++kuple=['1','2','5','6','1']
++print(f'kuple={kuple},type={type(kuple)}')
++
++kuple=('1','2','3')
++print(f'kuple={kuple},type={type(kuple)}')
++
++#集合,无序、不可重复、可扩展
++
++kuple={'1','2','3','2','1'}
++print(f'kuple={kuple},type={type(kuple)}')
++
++#字典,key>value
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1731677009511)
++++ b/.idea/modules.xml	(date 1731677009511)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/project.iml" filepath="$PROJECT_DIR$/.idea/project.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: 01/03.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/01/03.py b/01/03.py
+new file mode 100644
+--- /dev/null	(date 1731747175393)
++++ b/01/03.py	(date 1731747175393)
+@@ -0,0 +1,24 @@
++name='我叫小明'
++age=18
++print(f'{name},今年{age}岁,请多多关照！')
++
++
++student_id=1
++
++print('我的学号是%06d'%(student_id,))
++print('我的学号是%06d'%student_id)
++
++# %s 表示字符串占位符      %d 整型占位符      %f 浮点数占位符  %c
++price = 9.00
++weight = 5.00
++money = price * weight
++print('苹果单价%.2f元,购买了%.2f斤,一共花了%.2f元'%(price,weight,money))
++
++#输出%   需要填写两个%%
++scale = 10.00
++print('数据比例是 %.2f%%' %scale)
++
++num1=10
++num2=20
++result=float(num1)+float(num2)
++print(f'result=%.2f'%result)
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1733751701895)
++++ b/.idea/workspace.xml	(date 1733751701895)
+@@ -0,0 +1,303 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="ebaeb4bd-6d44-4190-b73d-f0b105581515" name="Changes" comment="learning">
++      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/01/02.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/01/03.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/01/04.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/01/05.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/01/06.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/03day/01.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/03day/02.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/03day/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/04day/__init__.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/1/1209.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/01.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/02.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/03.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/04.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/05.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/06.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/07.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/2day/__init__.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/1/learn.py" beforeDir="false" afterPath="$PROJECT_DIR$/1/learn.py" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Python Script" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="SIGN_OFF_COMMIT" value="true" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;history&quot;: [
++    {
++      &quot;state&quot;: &quot;OPEN&quot;
++    }
++  ],
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;
++  }
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/LexiPstar/pycharm.git&quot;,
++    &quot;accountId&quot;: &quot;55a6667e-af43-4fdf-93f5-2f4e9d31c4a8&quot;
++  }
++}</component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 3
++}</component>
++  <component name="ProjectId" id="2ot7QwcErE0nJUhT7k5simOwvHO" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Python.01 (1).executor": "Run",
++    "Python.01.executor": "Run",
++    "Python.02.executor": "Run",
++    "Python.03.executor": "Run",
++    "Python.04.executor": "Run",
++    "Python.05 (1).executor": "Run",
++    "Python.05.executor": "Run",
++    "Python.06.executor": "Run",
++    "Python.07.executor": "Run",
++    "Python.1208.executor": "Run",
++    "Python.1209.executor": "Run",
++    "Python.learn.executor": "Run",
++    "Python.main.executor": "Run",
++    "Python.test.executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "git-widget-placeholder": "master",
++    "settings.editor.selected.configurable": "vcs.Git"
++  }
++}]]></component>
++  <component name="RunManager" selected="Python.1209">
++    <configuration name="01 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="project" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/04day" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/04day/01.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="01" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="project" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/03day" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/03day/01.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="02" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="project" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/03day" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/03day/02.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="07" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="project" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2day" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2day/07.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="1209" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="project" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/1" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1/1209.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Python.1209" />
++        <item itemvalue="Python.01" />
++        <item itemvalue="Python.01 (1)" />
++        <item itemvalue="Python.02" />
++        <item itemvalue="Python.07" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="bundled-python-sdk-fb887030ada0-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.21565.199" />
++      </set>
++    </attachedChunks>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="SvnConfiguration">
++    <configuration>C:\Users\LexiPoy\AppData\Roaming\Subversion</configuration>
++  </component>
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="ebaeb4bd-6d44-4190-b73d-f0b105581515" name="Changes" comment="" />
++      <created>1731677005740</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1731677005740</updated>
++    </task>
++    <task id="LOCAL-00001" summary="扫雷游戏">
++      <option name="closed" value="true" />
++      <created>1733392523685</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1733392523685</updated>
++    </task>
++    <task id="LOCAL-00002" summary="扫雷游戏">
++      <option name="closed" value="true" />
++      <created>1733392842229</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1733392842229</updated>
++    </task>
++    <task id="LOCAL-00003" summary="扫雷游戏">
++      <option name="closed" value="true" />
++      <created>1733656345785</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1733656345785</updated>
++    </task>
++    <task id="LOCAL-00004" summary="扫雷游戏">
++      <option name="closed" value="true" />
++      <created>1733657225268</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1733657225268</updated>
++    </task>
++    <task id="LOCAL-00005" summary="learning">
++      <option name="closed" value="true" />
++      <created>1733667641640</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1733667641640</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
++    <servers />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Default" />
++    <MESSAGE value="扫雷游戏" />
++    <MESSAGE value="learning" />
++    <MESSAGE value="learning&#10;&#10;Signed-off-by: LexiPoy &lt;jianrebeca@outlook.com&gt;" />
++    <option name="LAST_COMMIT_MESSAGE" value="learning&#10;&#10;Signed-off-by: LexiPoy &lt;jianrebeca@outlook.com&gt;" />
++    <option name="LAST_CHUNK_COMMIT_MESSAGE" value="learning&#10;&#10;Signed-off-by: LexiPoy &lt;jianrebeca@outlook.com&gt;" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1731677009538)
++++ b/.idea/vcs.xml	(date 1731677009538)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: 01/04.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/01/04.py b/01/04.py
+new file mode 100644
+--- /dev/null	(date 1731770103176)
++++ b/01/04.py	(date 1731770103176)
+@@ -0,0 +1,30 @@
++#input 输入默认为字符串类型str
++# name = input('姓名：')
++# age = input('年龄：')
++# gender = input('性别：')
++# print(f'我叫{name}，今年{age}岁，{gender}')
++
++# Tshirt_p = 56.5
++# Pants_p = 89.8
++# Tshirt_p = float(input('Tshirt价格是：'))
++# Pants_p = float(input('Pants价格是：'))
++# Sum = Tshirt_p * 3 + Pants_p * 5
++# print(f'3件T恤和5条裤子一共%.2f元' %Sum)
++# discount = Sum * 0.88
++# print(f'打88折后，3件T恤和5条裤子一共%.2f元' %discount)
++
++n=10
++n+=1
++print(f'n={n}')
++n-=5
++print(f'n={n}')
++n*=6
++print(f'n={n}')
++n/=5
++print(f'n={n}')
++n//=6
++print(f'n={n}')
++n**=3
++print(f'n={n}')
++n%=6
++print(f'n={n}')
+\ No newline at end of file
+Index: 01/05.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/01/05.py b/01/05.py
+new file mode 100644
+--- /dev/null	(date 1731835072365)
++++ b/01/05.py	(date 1731835072365)
+@@ -0,0 +1,43 @@
++#定义变量接受年份，判断男子是否成年，如果成年则显示一些东西否则不显示。
++# age = int(input('输入年龄：'))
++# if age >= 18 :
++#     print('你成年了')
++# else :
++#     print('你是小屁孩')
++#
++score = int(input('成绩：'))
++# if 60 <= score < 80:
++#     print('\t及格')
++# else :
++#     if 80 <= score < 90:
++#         print('\t优秀')
++#     else :
++#         if score >= 90:
++#             print('\t完美')
++#         else :
++#             print('\t打死你')
++# while 0 <= score <= 100 :
++#     if 60 <= score < 80 :
++#         print('\t及格')
++#     elif 80 <= score < 90 :
++#         print('\t优秀')
++#     elif 90 <= score :
++#         print('\t完美')
++#     elif 0 <= score < 60 :
++#         print('\t打死你')
++#         break
++# else :
++#     print('请输入0-100的分数！')
++
++while 0 <= score <= 100:
++    if 0 <= score < 60:
++        print('\t打死你')
++        break
++    elif 60 <= score < 80 :
++        print('\t及格')
++    elif 80 <= score < 90:
++        print('\t优秀')
++    elif 90 <= score:
++        print('\t完美')
++else:
++    print('非法输入，请输入0-100的分数！')
+\ No newline at end of file
+Index: 01/06.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/01/06.py b/01/06.py
+new file mode 100644
+--- /dev/null	(date 1731834770918)
++++ b/01/06.py	(date 1731834770918)
+@@ -0,0 +1,18 @@
++num1 = int(input('请输入数字：'))
++num2 = int(input('请输入数字：'))
++num3 = int(input('请输入数字：'))
++# if num1 > num2:
++#     if num1 > num3:
++#         print(f'num1={num1}最大')
++#     else:
++#         print(f'num3={num3}最大')
++# else:
++#     if num2 < num3:
++#         print('f'num3={num3}最大')
++#     else:
++#         print(f'num2={num2}最大')
++
++
++second_max = num1 if num1 > num3 else num3
++max = second_max if second_max > num2 else num2
++print(f'max={max}')
+\ No newline at end of file
+Index: 2day/01.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2day/01.py b/2day/01.py
+new file mode 100644
+--- /dev/null	(date 1731836922918)
++++ b/2day/01.py	(date 1731836922918)
+@@ -0,0 +1,38 @@
++#会员/非会员  折扣/非折扣
++# vip = input('是否为会员Y/N：')
++# money = int(input('消费金额：'))
++# if vip == 'Y' or vip == 'y':
++#     if money >= 200:
++#         print(f'打8折,折后价为{money*0.8}')
++#     else:
++#         print(f'打9折,折后价为{money*0.9}')
++# else:
++#     if money >= 200:
++#         print(f'打8.8折,折后价为{money*0.88}')
++#     else:
++#         print('不打折')
++
++# month = int(input('请输入月份：'))
++# if month == 3 or month == 4 or month == 5:
++#     print('该月份在春季！')
++# elif month == 6 or month == 7 or month == 8:
++#     print('该月份在夏季！')
++# elif month == 9 or month == 10 or month == 11:
++#     print('该月份在秋季！')
++# elif month == 1 or month == 2 or month == 12:
++#     print('该月份在冬季！')
++# else:
++#     print('输入无效的月份！')  # To handle invalid input (e.g., months outside 1-12)
++
++month = int(input('请输入月份：'))
++if month in [1, 2, 12]:
++    print('该月份在冬季！')
++elif month in [3, 4, 5]:
++    print('该月份在春季！')
++elif month in [6, 7, 8]:
++    print('该月份在夏季！')
++elif month in [9, 10, 11]:
++    print('该月份在秋季！')
++else:
++    print('输入无效的月份！')  # 处理无效的输入（例如月份超过1到12）
++
+Index: 2day/02.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2day/02.py b/2day/02.py
+new file mode 100644
+--- /dev/null	(date 1731838207039)
++++ b/2day/02.py	(date 1731838207039)
+@@ -0,0 +1,16 @@
++#存款 取款
++deposit = 1000
++withdraw_money = int(input('输入需要取款金额：'))
++balance= deposit-withdraw_money
++if withdraw_money < deposit:
++    deposit -= withdraw_money
++    print('你已成功取出 %.2f元'%withdraw_money)
++    print('您的余额为： %.2f元'%deposit)
++else:
++    print('您的存款金额不足%.2f元'%withdraw_money)
++    print('您的当前余额为：%.2f元'%deposit)
++choice = input('是否退卡YES/NO：')
++if choice in ['yes','YES']:
++    print('请收好你的磁卡！')
++else:
++    print('继续操作！')
+\ No newline at end of file
+Index: 2day/03.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2day/03.py b/2day/03.py
+new file mode 100644
+--- /dev/null	(date 1731847747270)
++++ b/2day/03.py	(date 1731847747270)
+@@ -0,0 +1,37 @@
++# import random
++# num = (random.randint) %100
++
++#石头剪刀布 1.石头 2.剪刀 3.布
++import random
++computer = random.randint(1,3)
++person = int(input('输入数字：'))
++if person not in[1,2,3]:
++    print('数字无效，请输入1-3的整数！')
++else:
++    if person == computer:
++        print('不输不赢')
++    elif person == 1:
++        if computer == 2:
++            print('人赢')
++        elif computer == 3:
++            print('电脑赢')
++    elif person == 2:
++        if computer == 1:
++            print('电脑赢')
++        elif computer == 3:
++            print('人赢')
++    elif person == 3:
++        if computer == 1:
++            print('人赢')
++        elif computer == 2:
++            print('电脑赢')
++
++
++
++
++
++
++
++
++# if  computer == person :
++#     print('不输不赢')
+\ No newline at end of file
+Index: 2day/04.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2day/04.py b/2day/04.py
+new file mode 100644
+--- /dev/null	(date 1731853205835)
++++ b/2day/04.py	(date 1731853205835)
+@@ -0,0 +1,46 @@
++#while循环
++#打印10次   我爱北京天安门
++# i = 0
++# while i<10:
++#     print('我爱北京天安门',i)
++#     i += 1
++
++#打印0-10之间的整数  遍历n-m的数  50-72
++# i = 0
++# n = 50
++# while i < 22:
++#     if n % 2 == 1:
++#         print(n,end='\t')
++#         i += 1
++#         n += 1
++#     else:
++#         i += 1
++#         n += 1
++
++#1-100之间的偶数
++# i = 0
++# n = 1
++# sum = 0
++# print('i   n')
++# while i<100:
++#     if n%2==0:
++#         sum+=n
++#         print(n,end='\t')
++#     i+=1
++#     n+=1
++#     print(i,end='\n')
++# print(sum,end='\n')
++
++#猜鸡蛋（至少有2个鸡蛋）筐的容量为500
++#两个两个数多一个  count % 2 == 1
++#三个三个数多一个  count % 3 == 1
++# 四个四个数多一个 count % 4 == 1
++#请问最多有多少个鸡蛋？
++count = 2
++while True:
++    if count % 2 == 1 and count % 3 == 1 and count % 4 == 1:
++        print(f'一共有{count}个鸡蛋',end='\t')
++        print(f'count={count}')
++    count += 1
++    if count > 500:
++        break
+\ No newline at end of file
+Index: 2day/05.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2day/05.py b/2day/05.py
+new file mode 100644
+--- /dev/null	(date 1731854278468)
++++ b/2day/05.py	(date 1731854278468)
+@@ -0,0 +1,11 @@
++#统计1-100之间3的倍数的数
++i = 1
++count = 0
++while True:
++    if i % 3 == 0:
++        count += 1
++        print(i,end=' ')
++    i += 1
++    if i > 100:
++        break
++print(f'count={count}')
+\ No newline at end of file
+Index: 2day/06.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2day/06.py b/2day/06.py
+new file mode 100644
+--- /dev/null	(date 1731913841877)
++++ b/2day/06.py	(date 1731913841877)
+@@ -0,0 +1,31 @@
++#range(start,stop,step)函数生成序列-->  指定范围     例如：1，2，3，4，5，6，7，8，9.....
++#start(开头>=，不指定默认为0)  stop(末尾不包含即不=，<，必须指定)  step(增量,不指定默认为1） 区间为[n,n+2)-->(n,n+1)
++# r = range(1,11,1)
++# print(f'r = {range(1,11,1)}')
++# for i in range(11):  #循环11次  默认从0开始 默认增量为1
++#     print(i,end='\t')
++# for i in range(1,11):  #循环10次  默认从1开始  默认增量为1
++#     print(i,end='\t')
++# for i in range(1,11,2):  #循环10次  默认从1开始  默认增量为2
++#     print(i,end='\t')
++
++#1-100整数和
++range(1,101,1)
++sum = 0
++for i in range(1,101,1):
++    sum += i
++print(f'sum={sum}')
++
++
++sum = 0
++i = 1
++while i < 101:
++    sum += i
++    i += 1
++print(f'sum={sum}')
++
++count = 0
++for i in range(10):
++    for i in range(10):
++        count += 1
++print(f'count={count}')
+\ No newline at end of file
+Index: 2day/07.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2day/07.py b/2day/07.py
+new file mode 100644
+--- /dev/null	(date 1731917014694)
++++ b/2day/07.py	(date 1731917014694)
+@@ -0,0 +1,23 @@
++#地球和太阳的故事:地球是围绕着太阳转的,每转完一圈是一年.(公转)但是地球绕着太阳转的同时，自己也在转,转一圈是一天.
++#(自转)因此，当地球完成一次公转同时,那么地球就已经完成了365 次的自转.
++
++# for s in range(1,2,1):
++#     for e in range(1, 366, 1):
++#         print(f'地球完成了{e}次自转.')
++#     print(f'地球完成了{s}次公转.')
++
++#打印五行五列正方形
++# for i in range(5):   #控制行数
++#     for j in range(5):   #控制列数
++#         print('*',end='\t')
++#     print()
++
++#直角三角形
++for i in range(5):
++    for j in range(i+1):
++        print('*',end='\t')
++    print()
++for i in range(4):
++    for j in range(4-i):
++        print('*', end='\t')
++    print()
+\ No newline at end of file
+diff --git a/2day/__init__.py b/2day/__init__.py
+new file mode 100644
+diff --git a/04day/__init__.py b/04day/__init__.py
+new file mode 100644
+diff --git a/03day/__init__.py b/03day/__init__.py
+new file mode 100644
